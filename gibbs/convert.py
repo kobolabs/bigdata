@@ -7,7 +7,7 @@ import aaargh
 app = aaargh.App(description="Manipulate graphlab data file")
 
 
-@app.cmd(help="Convert Graphlab format input data to docid \\t json_array format")
+@app.cmd(help="Convert Graphlab format input data to docid \t json_array format")
 def graphlab_input2json():
     for docid, g in itertools.groupby(sys.stdin, key=lambda x: x.strip().split()[0]):
         token_counts = []
@@ -17,7 +17,7 @@ def graphlab_input2json():
         print("{}\t{}".format(docid, json.dumps(token_counts)))
 
 
-@app.cmd(help="Convert input from docid \\t json_array format to Graphlab format")
+@app.cmd(help="Convert input from docid \t json_array format to Graphlab format")
 def json2graphlab_input():
     for line in sys.stdin:
         docid, json_str = line.split('\t')
@@ -26,8 +26,8 @@ def json2graphlab_input():
             print("{}\t{}\t{}".format(docid, token, count))
 
 
-@app.cmd(help="Convert graphlab output to itemid \\t json_array format")
-def graphlab_output_2json():
+@app.cmd(help="Convert graphlab output to itemid \t json_array format")
+def graphlab_output2json():
     for line in sys.stdin:
         fields = line.split()
         print("{}\t{}".format(fields[0], json.dumps(map(int, fields[1:]))))

@@ -20,3 +20,11 @@ This Gibbs sampling code infers topic vectors for new documents based on the giv
 *  -a [ --alpha ] arg           Alpha, default 1.0
 *  -b [ --beta ] arg            Beta, default 0.1
 *  -u [ --burnin ] arg          Burn-in iterations, default 10
+
+Example
+-------
+As a demonstration, demo.sh shows how to use this Gibbs sampler to infer topics for the Daily Kos data. This is the same example from Graphlab (http://docs.graphlab.org/topic_modeling.html).
+
+1. Specifiy the path to the Graphlab LDA executable and the Gibbs sampler in demo.sh.
+2. Run "./demo.sh lda" to train a 10-topic LDA model using graphlab's topic model toolkit.
+3. Run "./demo.sh gibbs" to infer the topic vectors for the same set of documents using the trained LDA model and this gibbs sampler. Results are saved in inferred_topics.txt.
